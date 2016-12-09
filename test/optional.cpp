@@ -86,6 +86,16 @@ struct debugger_type
 
 TEST_CASE("optional")
 {
+    struct move_only
+    {
+        move_only(const move_only&) = delete;
+    };
+
+    move_only val;
+
+    optional<move_only> opt;
+    opt = std::move(val);
+
     SECTION("constructor - empty")
     {
         optional<int> a;
