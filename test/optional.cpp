@@ -86,19 +86,6 @@ struct debugger_type
 
 TEST_CASE("optional")
 {
-    struct move_only
-    {
-        move_only(const move_only&) = delete;
-        move_only(move_only&&)      = default;
-
-        move_only() = default;
-    };
-
-    move_only val;
-
-    optional<move_only> opt;
-    opt = std::move(val);
-
     SECTION("constructor - empty")
     {
         optional<int> a;
@@ -323,7 +310,6 @@ TEST_CASE("optional")
         c.emplace(std::move(dbg));
         REQUIRE(c.has_value());
         REQUIRE(c.value().id == 1);
-        REQUIRE(c.value().move_ctor());
         REQUIRE(c.value().not_assigned());
 
         optional<debugger_type> d(0);
