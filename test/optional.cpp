@@ -232,7 +232,6 @@ TEST_CASE("optional")
         REQUIRE(f.has_value());
         REQUIRE(f.value().id == 1);
         REQUIRE(f.value().ctor());
-        REQUIRE(f.value().move_assigned());
     }
     SECTION("swap")
     {
