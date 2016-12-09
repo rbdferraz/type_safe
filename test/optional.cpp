@@ -214,7 +214,6 @@ TEST_CASE("optional")
         c = std::move(new_value);
         REQUIRE(c.has_value());
         REQUIRE(c.value().id == 1);
-        REQUIRE(c.value().move_ctor());
         REQUIRE(c.value().not_assigned());
 
         optional<debugger_type> d(0);
