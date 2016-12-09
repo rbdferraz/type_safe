@@ -740,7 +740,6 @@ TEST_CASE("optional_ref")
         optional<debugger_type>     b_res = copy(b);
         REQUIRE(b_res.has_value());
         REQUIRE(b_res.value().id == 0);
-        REQUIRE(b_res.value().copy_ctor());
     }
     SECTION("move")
     {
