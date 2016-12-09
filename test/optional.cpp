@@ -740,9 +740,7 @@ TEST_CASE("optional_ref")
         optional<debugger_type>     b_res = copy(b);
         REQUIRE(b_res.has_value());
         REQUIRE(b_res.value().id == 0);
-#ifndef _MSC_VER
         REQUIRE(b_res.value().copy_ctor());
-#endif
     }
     SECTION("move")
     {
@@ -756,8 +754,6 @@ TEST_CASE("optional_ref")
         optional<debugger_type>     b_res = move(b);
         REQUIRE(b_res.has_value());
         REQUIRE(b_res.value().id == 0);
-#ifndef _MSC_VER
         REQUIRE(b_res.value().move_ctor());
-#endif
     }
 }

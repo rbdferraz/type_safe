@@ -26,6 +26,8 @@
 #define TYPE_SAFE_USE_REF_QUALIFIERS ((__GNUC__ >= 5) || (__GNUC__ == 4 && __GNUC_MINOR__ >= 9))
 #elif defined(__cpp_ref_qualifiers) && __cpp_ref_qualifiers >= 200710
 #define TYPE_SAFE_USE_REF_QUALIFIERS 1
+#elif defined(_MSC_VER) && _MSC_VER >= 1900
+#define TYPE_SAFE_USE_REF_QUALIFIERS 0
 #else
 #define TYPE_SAFE_USE_REF_QUALIFIERS 0
 #endif
