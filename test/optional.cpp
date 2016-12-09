@@ -89,6 +89,9 @@ TEST_CASE("optional")
     struct move_only
     {
         move_only(const move_only&) = delete;
+        move_only(move_only&&)      = default;
+
+        move_only() = default;
     };
 
     move_only val;
